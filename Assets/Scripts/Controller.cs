@@ -10,7 +10,7 @@ public class Controller : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     
-    private const string _isJump = "IsJump";
+    private const string IsJump = "IsJump";
     private float _minGroundNormalY = .65f;
     private float _gravityModifier = 1f;
     private Vector2 _velocity;
@@ -48,7 +48,7 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && Grounded)
         {
             _velocity.y = 7;
-            _animator.SetBool(_isJump, true);
+            _animator.SetBool(IsJump, true);
         }
 
         if (Input.GetAxis("Horizontal") < 0 && _isRight)
@@ -108,7 +108,7 @@ public class Controller : MonoBehaviour
                 if (currentNormal.y > _minGroundNormalY)
                 {
                     Grounded = true;
-                    _animator.SetBool(_isJump, false);
+                    _animator.SetBool(IsJump, false);
 
                     if (yMovement)
                     {
